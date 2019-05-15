@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+       <div class="container">
+          <div class="row" style="margin-top: 20px;">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <form [formGroup]="myForm" novalidate>
+                    <div class="form-row">
+                      <div class="col-12">
+                        <input type="text" name="name" formControlName="name" class="form-control" placeholder="Nombre">
+                        <span [hidden]="!formErrors.name" class="error">{{ formErrors.name }}</span>
+                      </div>
+                      <div class="col-12" style="margin-top: 5px;margin-bottom: 5px">
+                        <input class="form-control" name="dni" appValidation [length]="10" [group]="myForm" [errors]="formErrors" formControlName="dni" placeholder="cedula" type="text">
+                        <span [hidden]="!formErrors.dni" class="error">{{ formErrors.dni }}</span>
+                      </div>
+                      <div class="col-12" style="margin-top: 5px;margin-bottom: 5px">
+                        <input class="form-control" name="scoreOne" appValidation [length]="1" [group]="myForm" [errors]="formErrors" type="text" formControlName="scoreOne" class="form-control" placeholder="nota 1">
+                        <span [hidden]="!formErrors.scoreOne" class="error">{{ formErrors.scoreOne }}</span>
+                      </div>
+                      <div class="col-12" style="margin-top: 5px;margin-bottom: 5px">
+                        <input class="form-control" name="scoreTwo" appValidation [length]="1" [group]="myForm" [errors]="formErrors" type="text" formControlName="scoreTwo" class="form-control" placeholder="nota 2">
+                        <span [hidden]="!formErrors.scoreTwo" class="error">{{ formErrors.scoreTwo }}</span>
+                      </div>
+                      <div class="col-12" style="margin-top: 5px;margin-bottom: 5px">
+                        <input class="form-control" name="scoreTree" appValidation [length]="1" [group]="myForm" [errors]="formErrors" type="text" formControlName="scoreTree" class="form-control" placeholder="nota 3">
+                        <span [hidden]="!formErrors.scoreTree" class="error">{{ formErrors.scoreTree }}</span>
+                      </div>
+                      <div class="col-12" style="margin-top: 5px;margin-bottom: 5px">
+                        <input class="form-control" name="scoreFour" appValidation [length]="1" [group]="myForm" [errors]="formErrors" type="text" formControlName="scoreFour" class="form-control" placeholder="nota 4">
+                        <span [hidden]="!formErrors.scoreFour" class="error">{{ formErrors.scoreFour }}</span>
+                     </div>
+                      <div class="col-12" style="margin-top: 5px;margin-bottom: 5px">
+                          <button [disabled]="!myForm.valid" (click)="average()" type="submit" class="btn btn-primary">Calcular</button>
+                      </div>
+                    </div>
+                    
+                   
+                  </form>
+                  <div [hidden]="!show">
+                    El promedio es: {{ averageValue }}
+                  </div>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>    
